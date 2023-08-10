@@ -11,7 +11,13 @@ const port = process.env.PORT || 5050;
 const connectionString = process.env.MONGO_URL;
 
 app.use(express.json());
-app.use(cors())
+app.use(
+  cors({
+    origin: ['https://user-app-two-liard.vercel.app/'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+  })
+);
 app.use("/api", userRouter);
 
 (async () => {
