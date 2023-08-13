@@ -15,7 +15,7 @@ function Register() {
     e.preventDefault();
     try {
       console.log('form', formData);
-      const response = await axios.post('http://localhost:4000/api/user/register', formData);
+      const response = await axios.post('https://userlogin-api.onrender.com/api/user/register', formData);
       console.log('res', response.data);
     } catch (error) {
       console.log(error);

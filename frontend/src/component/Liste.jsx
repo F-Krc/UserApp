@@ -7,7 +7,7 @@ function Liste() {
 
   const getUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/user/userslist', {
+      const response = await axios.get('https://userlogin-api.onrender.com/api/user/userslist', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
