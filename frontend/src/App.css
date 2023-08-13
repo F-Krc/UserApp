@@ -111,3 +111,22 @@ body {
 .error-message {
   color: red;
 }
+
+
+@media (max-width: 400px) {
+  .login-container, .register-container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .login-container form input,
+  .register-form input {
+    margin-bottom: 10px;
+  }
+
+  .login-container form button,
+  .register-form button {
+    padding: 8px 16px;
+  }
+}

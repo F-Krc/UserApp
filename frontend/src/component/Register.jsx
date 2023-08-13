@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const initialForm = { name: '', customerId: '', email: '', password: '' };
 function Register() {
   const [formData, setFormData] = useState(initialForm);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +18,16 @@ function Register() {
       console.log('form', formData);
       const response = await axios.post('https://userlogin-api.onrender.com/api/user/register', formData);
       console.log('res', response.data);
+
+      if (response.data.success) {
+        setSuccessMessage('Registration completed successfully!');
+        setFormData(initialForm);
+      } else {
+        setSuccessMessage('');
+      }
     } catch (error) {
       console.log(error);
     }
-    setFormData(initialForm);
   };
 
   return (
@@ -55,11 +62,11 @@ function Register() {
         <br />
         <button type="submit">Send</button>
       </form>
-      <div className='register-ask-container'>
-       <span>Du hast schon einen Account?</span>
-      <Link to="/login">Login</Link> 
+      <div className="register-ask-container">
+        <span>Du hast schon einen Account?</span>
+        <Link to="/login">Login</Link>
       </div>
-      
+      {successMessage && <p className="success-message">{successMessage}</p>}
     </div>
   );
 }
