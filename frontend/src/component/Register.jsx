@@ -19,7 +19,7 @@ function Register() {
       const response = await axios.post('https://userlogin-api.onrender.com/api/user/register', formData);
       console.log('res', response.data);
 
-      if (response.data.success) {
+      if (response) {
         setSuccessMessage('Registration completed successfully!');
         setFormData(initialForm);
       } else {
