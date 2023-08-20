@@ -17,6 +17,7 @@ function Login() {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem('userToken')
     setIsLoggedIn(false);
     setFormData(initialForm);
     setLoginSuccess(false);
